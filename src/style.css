@@ -20,8 +20,9 @@ body {
 }
 
 .discription-container {
-  color: white;
   width: fit-content;
+  color: white;
+  display: flex;
   padding: 14px;
   font-size: 24px;
   opacity: 1;
@@ -59,6 +60,10 @@ body {
 .retry:hover {
   background-color: white;
   color: black;
+}
+
+.btn-disabled {
+  pointer-events: none;
 }
 
 .star {
