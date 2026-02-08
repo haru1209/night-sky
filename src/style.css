@@ -19,6 +19,13 @@ body {
   font-family: "Pixelify Sans";
 }
 
+.author {
+  position: absolute;
+  bottom: 20px;
+  right: 20px;
+  font-size: 28px;
+}
+
 .discription-container {
   width: fit-content;
   color: white;
@@ -27,6 +34,7 @@ body {
   font-size: 24px;
   opacity: 1;
   transition: opacity 0.3s;
+  gap: 8px;
 }
 
 .input {
