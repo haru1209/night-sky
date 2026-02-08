@@ -10,6 +10,7 @@ const romanceSentence = document.querySelector(".romance-sentence");
 const discriptionText = "Enter a number to create a romantic sky:";
 const reEnterDiscriptionText =
   "Please re-enter a number to create a romantic sky:";
+const outOfRangeDiscriptionText = "Did you really think that would work?";
 const romanceSentenceText =
   "Every moment with you is a gift, just like the stars above.";
 
@@ -22,11 +23,16 @@ inputElement.addEventListener("input", (e) => {
 inputElement.addEventListener("keydown", (e) => {
   if (e.key === "Enter") {
     if (inputValue <= 0 || isNaN(inputValue)) {
-      //TODO: re-enter number
       inputValue = "";
       inputElement.value = "";
       discription.innerHTML = null;
       typewriterEffect(reEnterDiscriptionText);
+      return;
+    } else if (inputValue > 100) {
+      inputValue = "";
+      inputElement.value = "";
+      discription.innerHTML = null;
+      typewriterEffect(outOfRangeDiscriptionText);
       return;
     }
     discriptionContainerElement.classList.add("transparent");
@@ -99,3 +105,5 @@ const showRomnceSentence = (textArg) => {
 };
 
 typewriterEffect(discriptionText);
+
+console.log("%cW*F r u looking at?", "color: red; font-size: 40px;");
