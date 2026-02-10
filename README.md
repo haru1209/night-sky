@@ -1,3 +1,5 @@
+![NightSky](/NightSky.png)
+
 # Night Sky
 
 Night Sky is a small Vite-powered web experience that turns your input into a starry scene. Type a number, press **Enter**, and watch the sky fill with stars followed by a short romantic line. Use **Retry** to clear the sky and start again.
@@ -5,8 +7,7 @@ Night Sky is a small Vite-powered web experience that turns your input into a st
 ## Features
 
 - Animated star creation based on the number you enter.
-- Lightweight, dependency-free frontend (just HTML, CSS, and JavaScript).
-- Quick reset to try different star counts.
+- Reset to try different star counts.
 
 ## Getting Started
 
@@ -50,5 +51,6 @@ Then open the local URL printed in your terminal.
 
 ## Usage Tips
 
-- Enter a positive integer to control the number of stars.
+- Pick a number from 1 to 100 to decide how many stars will light up the sky
 - Click **Retry** to reset and try another number.
+- Enjoy the romantic message that appears with the stars!
