@@ -1,4 +1,5 @@
 const inputElement = document.getElementById("input");
+const inputRow = document.querySelector(".input-row");
 const body = document.querySelector("body");
 const discriptionContainerElement = document.querySelector(
   ".discription-container",
@@ -26,13 +27,21 @@ inputElement.addEventListener("keydown", (e) => {
       inputValue = "";
       inputElement.value = "";
       discription.innerHTML = null;
-      typewriterEffect(reEnterDiscriptionText);
+      inputRow.classList.add("hidden");
+      typewriterEffect(reEnterDiscriptionText, () => {
+        inputRow.classList.remove("hidden");
+        inputElement.focus();
+      });
       return;
     } else if (inputValue > 100) {
       inputValue = "";
       inputElement.value = "";
       discription.innerHTML = null;
-      typewriterEffect(outOfRangeDiscriptionText);
+      inputRow.classList.add("hidden");
+      typewriterEffect(outOfRangeDiscriptionText, () => {
+        inputRow.classList.remove("hidden");
+        inputElement.focus();
+      });
       return;
     }
     discriptionContainerElement.classList.add("transparent");
@@ -78,17 +87,24 @@ const resetScene = () => {
   inputElement.value = "";
 
   discription.innerHTML = null;
-  typewriterEffect(discriptionText);
+  inputRow.classList.add("hidden");
+  typewriterEffect(discriptionText, () => {
+    inputRow.classList.remove("hidden");
+    inputElement.focus();
+  });
   romanceSentence.innerHTML = null;
 };
 
-const typewriterEffect = (textArg) => {
+const typewriterEffect = (textArg, callback) => {
   const discriptionArr = Array.from(textArg);
   for (let i = 0; i < discriptionArr.length; i++) {
     let text = document.createElement("span");
     text.innerHTML = discriptionArr[i];
     setTimeout(() => {
       discription.appendChild(text);
+      if (i === discriptionArr.length - 1 && typeof callback === "function") {
+        setTimeout(callback, 50);
+      }
     }, 50 * i);
   }
 };
@@ -104,7 +120,11 @@ const showRomnceSentence = (textArg) => {
   }
 };
 
-typewriterEffect(discriptionText);
+inputRow.classList.add("hidden");
+typewriterEffect(discriptionText, () => {
+  inputRow.classList.remove("hidden");
+  inputElement.focus();
+});
 
 console.log("%cWell, well... look who's there", "color: red; font-size: 20px;");
 setTimeout(() => {
