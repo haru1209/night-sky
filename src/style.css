@@ -114,7 +114,8 @@ body {
 .star {
   position: absolute;
   color: white;
-  animation: starAppear 0.5s ease-out;
+  animation: starAppear 0.5s ease-out forwards, starTwinkle 2s ease-in-out infinite;
+  animation-delay: 0s, 0.5s;
 }
 
 .sentence {
@@ -142,5 +143,16 @@ body {
   to {
     opacity: 1;
     transform: scale(1);
+  }
+}
+
+@keyframes starTwinkle {
+  0%, 100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+  50% {
+    opacity: 0.1;
+    transform: scale(0.6);
   }
 }

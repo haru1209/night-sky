@@ -74,6 +74,10 @@ const createStars = (count) => {
     starElement.textContent = "*";
     starElement.style.left = Math.random() * 100 + "%";
     starElement.style.top = Math.random() * 100 + "%";
+    const twinkleDuration = (1.5 + Math.random() * 2).toFixed(2) + "s";
+    const twinkleDelay = (0.5 + Math.random() * 3).toFixed(2) + "s";
+    starElement.style.animationDuration = `0.5s, ${twinkleDuration}`;
+    starElement.style.animationDelay = `0s, ${twinkleDelay}`;
     setTimeout(() => {
       body.appendChild(starElement);
       if (i === count - 1) {
